@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import { BookmarkIcon, HeartIcon as HeartOutlineIcon, UserCircleIcon } from "@heroicons/react/outline";
-import { BadgeCheckIcon, HeartIcon, StarIcon } from "@heroicons/react/solid";
+import { BadgeCheckIcon, HeartIcon, StarIcon, MenuIcon } from "@heroicons/react/solid";
 
 function Container({ children, className }: React.PropsWithChildren<{ className?: string }>) {
   return (
@@ -15,12 +15,12 @@ function HomePage() {
   return (
     <div className="pb-54">
       <header className="bg-white border-gray-200">
-        <div className="container mx-auto max-w-[1280px] flex justify-between items-center h-16">
+        <div className="container mx-auto max-w-6xl flex justify-between items-center h-16 px-6 xl:px-0">
           <div className="font-semibold text-lg">jobbed<i className="opacity-50 text-purple-500 font-normal">.io</i>
           </div>
 
           <div>
-            <nav className="grid gap-5 grid-flow-col h-10 text-sm">
+            <nav className="gap-5 grid-flow-col h-10 text-sm hidden md:grid">
               <a
                 className="bg-gray-100 border-2 border-purple-500 rounded-md flex items-center justify-center px-4 w-40 font-semibold">Find
                 a
@@ -31,6 +31,10 @@ function HomePage() {
                 <UserCircleIcon className="w-6 h-6" />
               </a>
             </nav>
+
+            <div className="md:hidden">
+              <MenuIcon className="w-6 h-6 "/>
+            </div>
           </div>
 
         </div>
@@ -100,8 +104,8 @@ function HomePage() {
         </div>
       </section>
 
-      <Container className="grid grid-cols-12 gap-8 py-10">
-        <div className="col-span-4 flex">
+      <Container className="grid grid-cols-1 gap-8 py-10 xl:grid-cols-12 px-5 xl:px-0">
+        <div className="xl:col-span-4 flex">
           <div className="bg-white rounded-xl flex-1 p-5 flex">
             <label className="flex-1 flex flex-col">
               <div className="font-semibold mb-2">Required Skills</div>
@@ -110,7 +114,7 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="col-span-8 grid gap-8">
+        <div className="xl:col-span-8 grid gap-8">
 
           {Array.from(Array(2)).map((_, index) => (
             <div key={index}
@@ -122,10 +126,10 @@ function HomePage() {
                     src="https://wellpaidio.imgix.net/logos/327c5998-1553-4b9a-bb31-73e936fd5411.png?w=236&h=236&fit=crop" />
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <div className="text-lg font-semibold overflow-hidden whitespace-nowrap text-ellipsis">Senior React
+                  <div className="text-lg font-semibold overflow-hidden text-ellipsis">Senior React
                     Developer
                   </div>
-                  <div className="text-xs text-gray-400 overflow-hidden whitespace-nowrap text-ellipsis">We are looking
+                  <div className="text-xs text-gray-400 overflow-hidden text-ellipsis">We are looking
                     for a Senior React Developer to join our team of highly
                   </div>
                 </div>
