@@ -1,6 +1,13 @@
 import React from 'react';
 import classnames from 'classnames';
-import { ExternalLinkIcon, HeartIcon as HeartOutlineIcon, UserCircleIcon, SearchIcon } from "@heroicons/react/outline";
+import {
+  ExternalLinkIcon,
+  HeartIcon as HeartOutlineIcon,
+  LocationMarkerIcon,
+  OfficeBuildingIcon,
+  SearchIcon,
+  UserCircleIcon
+} from "@heroicons/react/outline";
 import { BadgeCheckIcon, ChevronDoubleUpIcon, HeartIcon, MenuIcon, StarIcon } from "@heroicons/react/solid";
 
 function Container({ children, className }: React.PropsWithChildren<{ className?: string }>) {
@@ -12,6 +19,23 @@ function Container({ children, className }: React.PropsWithChildren<{ className?
 }
 
 function HomePage() {
+  const jobs = [{
+    name: "Senior React Developer",
+    company: "Apple Inc.",
+    location: "London, UK",
+    logo: "https://logo.clearbit.com/apple.com"
+  }, {
+    name: "React Developer",
+    company: "ASOS Ltd.",
+    location: "London, UK",
+    logo: "https://logo.clearbit.com/asos.com"
+  }, {
+    name: "Juinor React Developer",
+    company: "Nike Ltd.",
+    location: "London, UK",
+    logo: "https://logo.clearbit.com/nike.com"
+  }]
+
   return (
     <div className="pb-54">
       <header className="bg-gray-900 text-white border-gray-200">
@@ -103,7 +127,7 @@ function HomePage() {
             </a>
             <a href="#_"
                className="flex items-center px-6 py-3 text-gray-500 bg-gray-100 rounded-md hover:bg-gray-200 hover:text-gray-600">
-              Learn More
+              Find a contractor
             </a>
           </div>
         </div>
@@ -125,8 +149,8 @@ function HomePage() {
         </button>
       </div>
 
-      <Container className="grid grid-cols-1 gap-8 py-10 xl:grid-cols-12 px-5 xl:px-0">
-        <div className="xl:col-span-4 flex">
+      <Container className="max-w-[600px] grid grid-cols-1 gap-8 py-10 xl:grid-cols-12 px-5 xl:px-0">
+        <div className="xl:col-span-4 flex hidden">
           <div className="bg-white rounded-xl flex-1 p-5 flex">
             <label className="flex-1 flex flex-col">
               <div className="font-semibold mb-2">Required Skills</div>
@@ -135,26 +159,37 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="xl:col-span-8 grid gap-8">
+        <div className="xl:col-span-12 grid gap-8">
 
-          {Array.from(Array(2)).map((_, index) => (
+          {jobs.map(({ name, company, location, logo }, index) => (
             <div key={index}
                  className="bg-white rounded-xl p-5 hover:ring cursor-pointer transition-shadow ring-yellow-500 ring-opacity-40">
               <div className="flex gap-3">
-                <div className="flex-0 bg-gray-50 border border-gray-100 w-16 h-16 rounded-md overflow-hidden">
+                <div
+                  className="flex-0 border border-gray-100 w-16 h-16 rounded-md overflow-hidden bg-white flex justify-center items-center px-1">
                   <img
-                    alt="ATMOS"
-                    src="https://wellpaidio.imgix.net/logos/327c5998-1553-4b9a-bb31-73e936fd5411.png?w=236&h=236&fit=crop" />
+                    alt={name}
+                    src={logo} />
                 </div>
                 <div className="flex-1 overflow-hidden">
                   <div>
                     <div className="text-lg font-semibold overflow-hidden text-ellipsis">
-                      <span>Senior React Developer</span>
+                      <span>{name}</span>
                       <BadgeCheckIcon className="inline flex-0 w-5 h-5 text-blue-400 ml-1" />
                     </div>
                   </div>
-                  <div className="text-xs text-gray-400 overflow-hidden text-ellipsis">
-                    London, UK
+                  <div className="flex flex-col gap-0.5 justify-center">
+
+                    <div className="flex items-center text-xs text-gray-400 overflow-hidden text-ellipsis">
+                      <OfficeBuildingIcon className="w-3 h-3 mr-1" />
+                      <span>{company}</span>
+                    </div>
+
+                    <div className="flex items-center text-xs text-gray-400 overflow-hidden text-ellipsis">
+                      <LocationMarkerIcon className="w-3 h-3 mr-1" />
+                      <span>{location}</span>
+                    </div>
+
                   </div>
                   <div className="flex hidden">
                     <div
@@ -293,7 +328,7 @@ function HomePage() {
             </a>
           </div>
           <p className="mt-8 text-base leading-6 text-center text-gray-400">
-            © 2021 SomeCompany, Inc. All rights reserved.
+            © 2022 Jobbed, Inc. All rights reserved.
           </p>
         </div>
       </section>
