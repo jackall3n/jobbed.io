@@ -1,6 +1,6 @@
 import React from 'react';
 import classnames from 'classnames';
-import { ExternalLinkIcon, HeartIcon as HeartOutlineIcon, UserCircleIcon } from "@heroicons/react/outline";
+import { ExternalLinkIcon, HeartIcon as HeartOutlineIcon, UserCircleIcon, SearchIcon } from "@heroicons/react/outline";
 import { BadgeCheckIcon, ChevronDoubleUpIcon, HeartIcon, MenuIcon, StarIcon } from "@heroicons/react/solid";
 
 function Container({ children, className }: React.PropsWithChildren<{ className?: string }>) {
@@ -14,7 +14,7 @@ function Container({ children, className }: React.PropsWithChildren<{ className?
 function HomePage() {
   return (
     <div className="pb-54">
-      <header className="bg-white border-gray-200">
+      <header className="bg-gray-900 text-white border-gray-200">
         <div className="container mx-auto max-w-6xl flex justify-between items-center h-16 px-6 xl:px-0">
           <div className="font-semibold text-lg">jobbed<i className="opacity-50 text-purple-500 font-normal">.io</i>
           </div>
@@ -22,7 +22,7 @@ function HomePage() {
           <div>
             <nav className="gap-5 grid-flow-col h-10 text-sm hidden md:grid">
               <a
-                className="bg-gray-100 border-2 border-purple-500 rounded-md flex items-center justify-center px-4 w-40 font-semibold">Find
+                className="bg-purple-500 border-2 border-purple-500 bg-opacity-10 rounded-md flex items-center justify-center px-4 w-40 font-semibold">Find
                 a
                 job</a>
               <a className="flex items-center justify-center px-4">Jobs</a>
@@ -40,8 +40,7 @@ function HomePage() {
         </div>
       </header>
 
-
-      <section className="px-2 py-32 bg-white md:px-0 ">
+      <section className="px-2 py-32 bg-white md:px-0 hidden">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
           <div className="flex flex-wrap items-center sm:-mx-3">
             <div className="w-full md:w-1/2 md:px-3">
@@ -49,8 +48,7 @@ function HomePage() {
                 className="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
                 <h1
                   className="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
-                  <span className="block xl:inline">Level Up Your</span>
-                  <span className="block text-indigo-600">Job Search</span>
+                  <span className="block xl:inline">Get The <span className="block text-indigo-600">Job Search</span> You Deserve</span>
                 </h1>
                 <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">We help awesome
                   contract devs find amazing clients without recruiters. Create your profile with your availability and
@@ -81,12 +79,12 @@ function HomePage() {
         </div>
       </section>
 
-
-      <section className="px-2 pt-32 bg-white md:px-0 hidden">
+      <section className="px-2 pt-32 pb-20 bg-gray-900 md:px-0">
         <div className="container items-center max-w-6xl px-5 mx-auto space-y-6 text-center">
           <h1
-            className="text-4xl font-extrabold tracking-tight text-left text-gray-900 sm:text-5xl md:text-6xl md:text-center">
-            <span className="block">Level Up Your <span className="block mt-1 text-purple-500 lg:inline lg:mt-0">Job Search</span></span>
+            className="text-4xl font-extrabold tracking-tight text-left text-white sm:text-5xl md:text-6xl md:text-center">
+            <span className="block">Get The <span
+              className="block mt-1 text-purple-500 lg:inline lg:mt-0">Right Job</span> You Deserve</span>
           </h1>
           <p
             className="w-full mx-auto text-base text-left text-gray-500 md:max-w-md sm:text-lg lg:text-2xl md:max-w-3xl md:text-center">
@@ -109,10 +107,23 @@ function HomePage() {
             </a>
           </div>
         </div>
-        <div className="container items-center max-w-4xl px-5 h-36 overflow-hidden mx-auto mt-16 text-center">
-          <img src="https://cdn.devdojo.com/images/november2020/hero-image.png" />
-        </div>
       </section>
+
+      <div
+        className="container shadow-md max-w-[750px] mx-5 md:mx-auto flex bg-white p-2 -mt-8 rounded-xl overflow-hidden h-16">
+        <div className="flex-1 flex">
+          <label className="pl-3 flex-1 flex items-center justify-center">
+            <SearchIcon className="w-5 h-5 text-gray-400" />
+            <input className="flex-1 outline-0 py-2 px-3 text-sm font-normal" placeholder="e.g. React, TypeScript" />
+          </label>
+          <input className="flex-1 outline-0 py-2 px-3 text-sm font-normal" placeholder="e.g. Brighton, London" />
+        </div>
+        <button className="px-5 font-normal bg-purple-500 text-sm rounded-md md:min-w-[140px] md:min-w-auto text-white"
+                placeholder="e.g. Brighton, London">
+          <SearchIcon className="w-5 h-5 md:hidden" />
+          <span className="hidden md:block">Search</span>
+        </button>
+      </div>
 
       <Container className="grid grid-cols-1 gap-8 py-10 xl:grid-cols-12 px-5 xl:px-0">
         <div className="xl:col-span-4 flex">
@@ -136,9 +147,11 @@ function HomePage() {
                     src="https://wellpaidio.imgix.net/logos/327c5998-1553-4b9a-bb31-73e936fd5411.png?w=236&h=236&fit=crop" />
                 </div>
                 <div className="flex-1 overflow-hidden">
-                  <div className="text-lg flex items-center font-semibold overflow-hidden text-ellipsis">
-                    <span>Senior React Developer</span>
-                    <BadgeCheckIcon className="w-5 h-5 text-blue-400 ml-1" />
+                  <div>
+                    <div className="text-lg font-semibold overflow-hidden text-ellipsis">
+                      <span>Senior React Developer</span>
+                      <BadgeCheckIcon className="inline flex-0 w-5 h-5 text-blue-400 ml-1" />
+                    </div>
                   </div>
                   <div className="text-xs text-gray-400 overflow-hidden text-ellipsis">
                     London, UK
