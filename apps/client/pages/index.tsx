@@ -239,7 +239,7 @@ function HomePage() {
                   </div>
 
                   <button
-                    className="flex items-center justify-center w-full px-6 py-2 text-white bg-indigo-600 rounded-md hover:bg-indigo-700 sm:w-auto">
+                    className="flex items-center justify-center w-full px-6 py-2 text-white bg-purple-500 rounded-md hover:bg-indigo-700 sm:w-auto">
                     <span>Apply</span>
                     <ExternalLinkIcon className="w-4 h-4 ml-2" />
                   </button>
