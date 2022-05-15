@@ -151,17 +151,13 @@ function HomePage() {
         </button>
       </div>
 
-      <Container className="max-w-[600px] grid grid-cols-1 gap-8 py-10 xl:grid-cols-12 px-5 xl:px-0">
-        <div className="xl:col-span-4 flex hidden">
-          <div className="bg-white rounded-xl flex-1 p-5 flex">
-            <label className="flex-1 flex flex-col">
-              <div className="font-semibold mb-2">Required Skills</div>
-              <input className="bg-gray-100 rounded-md flex py-1 px-3" />
-            </label>
-          </div>
+      <Container className="max-w-[600px] grid grid-cols-1 gap-8 py-10 px-5 xl:px-0">
+
+        <div className="text-center text-lg">
+          <strong>{jobs.length}</strong> jobs found for <strong>React Developer</strong> in <strong>London, UK</strong>.
         </div>
 
-        <div className="xl:col-span-12 grid gap-8">
+        <div className="grid gap-8">
 
           {jobs.map(({ name, company, location, logo }, index) => (
             <div key={index}
