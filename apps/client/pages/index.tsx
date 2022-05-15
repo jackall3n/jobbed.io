@@ -9,6 +9,7 @@ import {
   UserCircleIcon
 } from "@heroicons/react/outline";
 import { BadgeCheckIcon, ChevronDoubleUpIcon, HeartIcon, MenuIcon, StarIcon } from "@heroicons/react/solid";
+import Head from "next/head";
 
 function Container({ children, className }: React.PropsWithChildren<{ className?: string }>) {
   return (
@@ -30,7 +31,7 @@ function HomePage() {
     location: "London, UK",
     logo: "https://logo.clearbit.com/asos.com"
   }, {
-    name: "Juinor React Developer",
+    name: "Junior React Developer",
     company: "Nike Ltd.",
     location: "London, UK",
     logo: "https://logo.clearbit.com/nike.com"
@@ -38,6 +39,10 @@ function HomePage() {
 
   return (
     <div className="pb-54">
+      <Head>
+        <title>Find your perfect job | jobbed.io</title>
+      </Head>
+
       <header className="bg-gray-900 text-white border-gray-200">
         <div className="container mx-auto max-w-6xl flex justify-between items-center h-16 px-6 xl:px-0">
           <div className="font-semibold text-lg">jobbed<i className="opacity-50 text-purple-500 font-normal">.io</i>
@@ -115,7 +120,7 @@ function HomePage() {
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Don't waste time and start your search for a new job here!
           </p>
-          <div className="relative flex flex-col justify-center md:flex-row md:space-x-4">
+          <div className="relative flex flex-col justify-center md:flex-row md:space-x-4 hidden">
             <a href="#_"
                className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-purple-500 rounded-md md:mb-0 hover:bg-purple-700 md:w-auto">
               Find a job
@@ -133,22 +138,28 @@ function HomePage() {
         </div>
       </section>
 
-      <div
-        className="container shadow-md max-w-[750px] mx-5 md:mx-auto flex bg-white p-2 -mt-8 rounded-xl overflow-hidden">
-        <div className="flex-1 flex py-1">
-          <label className="pl-3 flex-1 flex items-center justify-center">
-            <SearchIcon className="w-5 h-5 text-gray-400" />
-            <input className="flex-1 outline-0 py-2 px-3 text-sm font-normal"
-                   placeholder="Search keywords, jobs, companies" />
-          </label>
-          <input className="flex-1 outline-0 py-2 px-3 text-sm font-normal border-l"
-                 placeholder="Enter your locations" />
+      <div className="container max-w-[750px] mx-auto">
+        <div
+          className="flex flex-col shadow-md md:flex-row bg-white p-0 md:p-2 mx-5 md:mx-0 -mt-8 rounded-xl">
+          <div className="flex-1 flex py-0 flex-col md:flex-row">
+            <label className="flex-1 flex items-center justify-center mx-3 my-5 md:my-0 md:mx-0">
+              <SearchIcon className="ml-3 w-5 h-5 text-gray-400 hidden md:block" />
+              <input className="flex-1 outline-0 py-0 px-1 md:py-2 md:px-3 text-sm font-normal"
+                     placeholder="Search keywords, jobs, companies" />
+            </label>
+            <label className="flex-1 flex items-center justify-center border-l-0 md:border-l border-t md:border-t-0">
+              <input className="flex-1 outline-0 mx-3 my-5 md:my-0 md:py-2 px-1 md:px-3 text-sm font-normal"
+                     placeholder="Enter your locations" />
+            </label>
+
+          </div>
+          <button
+            className="m-3 mt-0 md:m-0 px-10 h-12 flex items-center justify-center font-normal bg-purple-500 transition-colors hover:bg-purple-600 text-sm rounded-lg md:min-w-auto text-white"
+            placeholder="e.g. Brighton, London">
+            Search
+          </button>
         </div>
-        <button
-          className="px-10 h-12 flex items-center justify-center font-normal bg-purple-500 transition-colors hover:bg-purple-600 text-sm rounded-lg md:min-w-auto text-white"
-          placeholder="e.g. Brighton, London">
-          Search
-        </button>
+
       </div>
 
       <Container className="max-w-[600px] grid grid-cols-1 gap-8 py-10 px-5 xl:px-0">
