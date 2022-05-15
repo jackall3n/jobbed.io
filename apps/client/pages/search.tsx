@@ -1,11 +1,11 @@
 import React from 'react';
+import useQuery from 'next-query';
 import classnames from 'classnames';
 import {
   ExternalLinkIcon,
   HeartIcon as HeartOutlineIcon,
   LocationMarkerIcon,
-  OfficeBuildingIcon,
-  SearchIcon
+  OfficeBuildingIcon
 } from "@heroicons/react/outline";
 import { BadgeCheckIcon, ChevronDoubleUpIcon, HeartIcon, StarIcon } from "@heroicons/react/solid";
 import Head from "next/head";
@@ -21,6 +21,8 @@ function Container({ children, className }: React.PropsWithChildren<{ className?
 }
 
 function SearchPage() {
+  const { keyword, location } = useQuery<{ keyword: string, location: string }>();
+
   const jobs = [{
     name: "Senior React Developer",
     company: "Apple Inc.",
@@ -46,7 +48,8 @@ function SearchPage() {
 
       <Header />
 
-      <SearchBar className="mt-5" />
+      <SearchBar className="mt-5"
+                 initialValues={{ keyword, location }} />
 
       <Container className="max-w-[600px] grid grid-cols-1 gap-8 py-10 px-5 xl:px-0">
 
@@ -231,6 +234,14 @@ function SearchPage() {
 
     </div>
   );
+}
+
+export function getServerSideProps(context: any) {
+  console.log(context)
+
+  return {
+    props: {}
+  }
 }
 
 export default SearchPage;
