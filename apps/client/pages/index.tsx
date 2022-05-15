@@ -54,7 +54,7 @@ function HomePage() {
               className="block mt-1 text-purple-500 lg:inline lg:mt-0">Right Job</span> You Deserve</span>
           </h1>
           <p
-            className="w-full mx-auto text-base text-left text-gray-500 md:max-w-md sm:text-lg lg:text-2xl md:max-w-3xl md:text-center">
+            className="w-full mx-auto text-base text-left text-gray-500 md:max-w-md sm:text-lg lg:text-2xl md:max-w-3xl md:text-center pb-5">
             {/* eslint-disable-next-line react/no-unescaped-entities */}
             Don't waste time and start your search for a new job here!
           </p>
